@@ -1,7 +1,9 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
+<!-- 
+    send correct js from flask and implement table
+    insert map with leaflet.js 
+-->
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -25,7 +27,7 @@
     <title>Pizza Pizza Pizza</title>
 </head>
 
-<body>
+<body style="background-image: 'images/pizza.jpg';">
     <div class="overlay"></div>
 
     <nav class="navbar navbar-expand-sm navbar-static-top" role="navigation">
@@ -50,9 +52,10 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                             <a class="dropdown-item" href="#">Pizza Pizza Pizza</a>
-                            <a class="dropdown-item" href="https://druce.ai/swr-react/">Certainty-Equivalent Retirement Spending</a>
-                            <a class="dropdown-item" href="http://www.streeteye.com/static/fintwit201901/">FinTwit Graph</a>
                             <a class="dropdown-item" href="http://www.streeteye.com/namegenerator/">Hedge Fund Name Generator</a>
+                            <a class="dropdown-item" href="http://www.streeteye.com/static/fintwit201901/">FinTwit Graph</a>
+                            <a class="dropdown-item" href="http://blog.streeteye.com/blog/2016/08/safe-retirement-spending-using-certainty-equivalent-cash-flow-and-tensorflow/">Certainty-Equivalent Retirement Spending</a>
+                            <a class="dropdown-item" href="http://www.streeteye.com/calculator/">Cat Food Calculator</a>
                           </div>
                     </li>
                     <li class="nav-item"><a class="nav-link" href="#"><i class="fa fa-address-card fa-lg"></i> About</a>
@@ -78,37 +81,25 @@
             <form class="col-12 col-sm-6 offset-sm-1">
                 <div class="form-row">
                     <div class="form-group pr-1">
-                        <label class="sr-only" for="keyword_button">Keyword</label>
-                        <button id="keyword_button" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Keyword
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a id="pizza_action" class="dropdown-item" href="#" value="pizza">Pizza</a>
-                            <a id="coffee_action" class="dropdown-item" href="#" value="coffee">Coffee</a>
-                            <a id="icecream_action" class="dropdown-item" href="#" value="icecream">Ice Cream</a>
-                        </div>
+                        <label for="keyword_input">Keyword</label>
+                        <input id="keyword_input" name="keyword" type="text" value="Coffee" />
                     </div>
-                    
+                </div>
+                <div class="form-row">
                     <div class="form-group pr-1">
-                        <label class="sr-only" for="location_button">Location</label>
-                        <button id="location_button" class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Location
-                        </button>
-                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <a id="midtown" class="dropdown-item" href="#" value="midtown">Midtown</a>
-                            <a id="downtown" class="dropdown-item" href="#" value="downtown">Downtown</a>
-                            <a id="uppereastside" class="dropdown-item" href="#" value="uppereastside">Upper East Side</a>
-                            <a id="upperwestside" class="dropdown-item" href="#" value="upperwestside">Upper West Side</a>
-                            <a id="brooklynheights" class="dropdown-item" href="#" value="brooklynheights">Brooklyn Heights</a>
-                            <a id="grandarmyplaza" class="dropdown-item" href="#" value="grandarmyplaza">Grand Army Plaza</a>
-                            <a id="bayridge" class="dropdown-item" href="#" value="bayridge">Bay Ridge</a>
-                            <a id="williamsburg" class="dropdown-item" href="#" value="williamsburg">Williamsburg</a>
-                        </div>
+                        <label for="latitude_input">Latitude</label>
+                        <input id="latitude_input" name="lat" type="text" value="40.6915812" />
                     </div>
+                </div>
+                <div class="form-row">
+                        <div class="form-group pr-1">
+                        <label for="longitude_button">Latitude</label>
+                        <input id="longitude_input" name="lng" type="text" value="-73.9954095" />
+                    </div>
+                </div>
 
-                    <div class="form-group">
-                        <button type="button" class="btn btn-danger" id="search_button">Search</button>
-                    </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-danger" id="search_button">Search</button>
                 </div>
             </form>
         </div>
@@ -152,8 +143,7 @@
         integrity="sha512-gZwIG9x3wUXg2hdXF6+rVkLF/0Vi9U8D2Ntg4Ga5I5BZpVkVxlJWbSQtXPSiUTtC0TjtGOmxa1AJPuV0CPthew=="
         crossorigin=""></script>        
     <script src="js/jquery.dataTables.min.js"></script>        
-    <script src="js/main.js"></script>
+    <script src="js/main2.js"></script>
 </body>
 
 </html>
-

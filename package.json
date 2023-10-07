@@ -1,38 +1,68 @@
 {
-  "name": "pizza-map",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^13.0.0",
-    "@testing-library/user-event": "^13.2.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.0"
-  },
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  }
+    "name": "pizza-map",
+    "version": "1.0.0",
+    "description": "Find highest rated pizza (or other query string) in Google Maps by distance from a location",
+    "homepage": "https://druce.github.io/pizza-map",
+    "main": "main.js",
+    "directories": {
+        "example": "example"
+    },
+    "private": true,
+    "dependencies": {
+        "@testing-library/jest-dom": "^5.14.1",
+        "@testing-library/react": "^13.0.0",
+        "@testing-library/user-event": "^13.2.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^2.1.0"
+    },
+    "scripts": {
+        "predeploy": "npm run build",
+        "deploy": "gh-pages -d build",
+        "start": "npm run watch:all",
+        "lite": "lite-server",
+        "scss": "node-sass -o css/ css/",
+        "watch:scss": "onchange 'css/*.scss' -- npm run scss",
+        "watch:all": "parallelshell 'npm run watch:scss' 'npm run lite'",
+        "clean": "rimraf dist",
+        "imagemin": "imagemin images/* --out-dir='dist/images'",
+        "copyimages": "copyfiles -f images/* dist/images",
+        "usemin": "usemin index.html -d dist --htmlmin -o dist/index.html",
+        "build": "npm run clean && npm run copyimages && npm run usemin",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    },
+    "devDependencies": {
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+        "gh-pages": "^6.0.0",
+        "cssmin": "^0.4.3",
+        "htmlmin": "0.0.7",
+        "lite-server": "^2.5.4",
+        "minimist": "^1.2.6",
+        "node-sass": "^9.0.0",
+        "onchange": "^7.0.2",
+        "parallelshell": "^3.0.2",
+        "rimraf": "^3.0.2",
+        "uglifyjs": "^2.4.11",
+        "usemin-cli": "^0.6.0"
+    }
 }
